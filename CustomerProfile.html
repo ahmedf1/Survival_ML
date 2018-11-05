@@ -1,0 +1,83 @@
+
+    <ul class="list-unstyled">
+        <li class="media">
+        <img class="mr-3" src={{object.profilePic}} alt="Profile Picture: This is you!" height="200px" width ="200px">
+        <div class="media-body">
+            <div class="row">
+            <div class = "col-lg">
+        
+        <h4> {{user.userprofile.firstName}} {{user.userprofile.lastName}}</h4>
+        <h7>{{user.userprofile.university}}</h7><br>
+        <h7>{{user.userprofile.year_in_school}}</h7><br>
+        <h7>Member Since: {{user.memberSince.year}}</h7>
+        <br>
+        
+        </div>
+        <div class= "col-lg">
+            <div class = "container"> 
+        <!--<h4 style = "margin-right:5%;">Status: Gold (dis is hardcoded)</h4>-->
+        <span class="badge-pill" style="background-color:#439DBB;color:white;float:left;">&#x1f44d: {{user.userprofile.numberofLikes}} </span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </li>
+
+    <li class = "media">
+        <div class="media-body" style = "margin-top:2%">
+            <h5>Currently Taking this Semester:</h5>
+                <table class="table table-striped table-bordered">
+                        <thead>
+                            <td><strong>Class</strong></td>
+                            <td><strong>Professor</strong></td>
+                        </thead>
+                        <tbody>
+                        {% for  object in object_list %}
+                        {% if object.chatID.currently_active%}
+                        <tr>
+                        <td>{{object.chatID.className}}</td>
+                        <td>{{object.chatID.professor}}</td>
+                        
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        </tbody>
+                        </table>
+        
+        </div>
+       
+        
+        
+        </li>
+        <li class="media">
+         
+        <div class="media-body">
+                <h5>Classes Taken:</h5>
+                <table class="table table-striped table-bordered">
+                        <thead>
+                            <td><strong>Class</strong></td>
+                            <td><strong>Professor</strong></td>
+                            <td><strong>Semester Taken</strong></td>
+                        </thead>
+                        <tbody>
+                            {% for  object in object_list %}
+                            {% if object.chatID.currently_active == 0 %}
+                            <tr>
+                            <td>{{object.chatID.className}}</td>
+                            <td>{{object.chatID.professor}}</td>
+                            {% if object.chatID.s_year|make_list|first == 'F' %}
+                            <td>Fall '{{object.chatID.s_year|slice:'1:' }}</td>
+                            {% endif %}
+                            {% if object.chatID.s_year|make_list|first == 'S' %}
+                            <td>Spring '{{object.chatID.s_year|slice:'1:' }}</td>
+                            {% endif %}
+                            
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                        </table>
+        </div>
+        </li>
+        </ul>
+</div>
