@@ -18,6 +18,6 @@ class dashboardProspective(TemplateView):
     template_name = "ProspectiveCustomerDashBoard.html" 
 
 class CustomerProfile(TemplateView):
-    template_name = "Customerprofile.html"
+    template_name = "CustomerProfile.html"
 
 # Create your views here.

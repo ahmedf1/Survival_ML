@@ -16,9 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from dataTables.views import homePage
+from dataTables.views import * #homepage,dashboardCurrent,dashboardNew,dashboardProspective,CustomerProfile
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',homePage.as_view())
+    url(r'^$',homepage.as_view(), name='main'),
+    url(r'CurrentCustomerDashboard',dashboardCurrent.as_view(),name='CurrentCustomerDashboard'),
+    url(r'NewlyAcquiredCustomerDashboard^$',dashboardNew.as_view(),name='NewlyAcquiredCustomerDashboard'),
+    url(r'ProspectiveCustomerDashBoard^$',dashboardProspective.as_view(),name='ProspectiveCustomerDashBoard'),
+    url(r'CustomerProfile^$',CustomerProfile.as_view(),name='CustomerProfile'),
+               #url(r'^$',homepage.as_view()),
 ]
