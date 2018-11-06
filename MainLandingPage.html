@@ -3,17 +3,74 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <title>Customers</title>
 <body style="background-color: #f7f5f4;">
-<div class="jumbotron jumbotron-fluid" style="background-color: #7EBCE6">
+<div class="nav bg-primary shadow-sm">
     <div class = "container">
-        <h1>Choose which customer base to view</h1>
+        <h3 class="text-white text-center">Choose which customer base to view</h3>
     </div>
 </div>
-<div class="row" style="height:25%;">
-        <div class="col-sm-3" style="background-color: springgreen;padding: 5%;margin: 0 auto;text-align: center;">
-            <div class="container">
-                <a href="CurrentCustomerDashBoard.html">Current Customers</a>
-            </div>
-        </div>
+<div class ="container">
+<div class="card-deck pt-5">
+  <div class="card border border-primary bg-white">
+    <div class="card-body text-center">
+      <h3 class="card-text text-primary"> Current Customer: </h3>
+      <p class="card-text text-primary">Here you can view current customer data. The CSR can use this to understand the current standing and value of individual customers.</p>
+      <a href="CurrentCustomerDashBoard.html" class="btn btn-primary">View the data</a>
+    </div>
+  </div>
+  <div class="card border border-success bg-white">
+    <div class="card-body text-center">
+      <h3 class="card-text text-success">Fresh Customer: </h3>  
+      <p class="card-text text-success">Here you can view the fresh customer data. Operations team can view the fresh costumer statistics in order to identify how they are valued.</p>
+      <a href="NewAcquiredCustomerDashBoard.html" class="btn btn-success">View the data</a>
+    </div>
+  </div>
+  <div class="card border border-danger bg-white">
+    <div class="card-body text-center">
+        <h3 class="card-text text-danger">Potential Customer: </h3>
+      <p class="card-text text-danger">Here you can view the potential customer data. This section will be useful in helping the advertising team determine which customers to market to.</p>
+      <a href="ProspectiveCustomerDashBoard.html" class="btn btn-danger">View the data</a>
+    </div>
+  </div>
+</div>
+</div>
+<!--<div class="row">
+    #7EBCE6
+<div class="col-md-4 card">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Newly Acquired Customer</h5>
+    <p class="card-text">Find data on our current customers, such as retention rate and lifetime value. </p>
+    <a href="NewAcquiredCustomerDashBoard.html" class="btn btn-primary">View the data</a>
+  </div>
+  </div>
+  <div class="col-md-4 card">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Current Customer</h5>
+    <p class="card-text">Find data on our current customers, such as retention rate and lifetime value. </p>
+    <a href="CurrentCustomerDashBoard.html" class="btn btn-primary">View the data</a>
+  </div>
+  </div>
+  <div class="col-md-4 card">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Current Customer</h5>
+    <p class="card-text">Find data on our current customers, such as retention rate and lifetime value. </p>
+    <a href="CurrentCustomerDashBoard.html" class="btn btn-primary">View the data</a>
+  </div>
+  </div>
+</div>-->
+  <!--
+<div class="row";">
+        <div class="card" style="width: 33% height: 100%">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Current Customer</h5>
+    <p class="card-text">Find data on our current customers, such as retention rate and lifetime value. </p>
+    <a href="CurrentCustomerDashBoard.html" class="btn btn-primary">View the data</a>
+  </div>
+  </div>
+</div>
         <div class="col-sm-3" style="background-color: orange;padding: 5%;margin: 0 auto;text-align: center;">
             <div class="container">
                 <a href="NewAcquiredCustomerDashBoard.html">Newly Acquired Customers</a>
@@ -26,6 +83,6 @@
         </div>
 <div>
 
-
+-->
 </body>
 </html>
