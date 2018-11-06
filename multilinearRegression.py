@@ -14,8 +14,8 @@ from matplotlib import pyplot as plt
 col_names = [
     'Customer Name', 'Location', 'Age', 'Scaled Age', 'Credit Score', 'Scaled Credit Score', 'Income(Thousands)', 'Scaled Income', 'Household Size', 'Scaled HouseholdSize', 'Number of Reported Internet Slowdowns', 'Scaled Reported Internet Slowdowns', 'Number of Cable Outages', 'Scaled Number of Cable Outages', 'Number of Calls to CSR', 'CSR Calls Scaled', 'Number Of Call Drops', 'Call Drop Scaled', 'Fios Competitive Zone', 'Fios Scaled', 'Internet Package Level', 'Cable Package Level', 'Phone Package Level', 'Scaled Service Level', 'Months Subscribed', 'Retention Cost', 'Customer Lifetime Value', 'Customer State'
     ]
-
 new_col_names = col_names[:24]
+#print(new_col_names)
 
 # open file /
 df = pd.read_csv('/Users/Farhad_Ahmed/Desktop/Altice/alticeDataPlatform/src/Template/Cleaned Existing Customer Data - Sheet1.csv', header=None,delim_whitespace=False,skiprows=1,delimiter=',', names=col_names,na_values='?')
@@ -36,23 +36,21 @@ CLV_df1=np.stack((df['Scaled Age'],df['Scaled Credit Score'],df['Scaled Income']
 CS_df1=np.stack((df['Scaled Age'],df['Scaled Credit Score'],df['Scaled Income'], df['Scaled HouseholdSize'], df['Scaled Reported Internet Slowdowns'], df['Scaled Number of Cable Outages'], df['CSR Calls Scaled'], df['Call Drop Scaled'], df['Fios Scaled'], df['Scaled Service Level'], df['Customer State'])).T
               #df['Retention Cost'], df['Customer Lifetime Value'], df['Customer State'])).T
 
-newC_df1=np.stack((newCustomerdf['Scaled Age'],newCustomerdf['Scaled Credit Score'],newCustomerdf['Scaled Income'], newCustomerdf['Scaled HouseholdSize'], newCustomerdf['Scaled Reported Internet Slowdowns'], newCustomerdf['Scaled Number of Cable Outages'], newCustomerdf['CSR Calls Scaled'], newCustomerdf['Call Drop Scaled'], newCustomerdf['Fios Scaled'], newCustomerdf['Scaled Service Level'])).T
+
+MS_df1=np.stack((df['Scaled Age'],df['Scaled Credit Score'],df['Scaled Income'], df['Scaled HouseholdSize'], df['Scaled Reported Internet Slowdowns'], df['Scaled Number of Cable Outages'], df['CSR Calls Scaled'], df['Call Drop Scaled'], df['Fios Scaled'], df['Scaled Service Level'], df['Months Subscribed'])).T
                                                                                                                 
 MS_df2=(MS_df1[~np.isnan(MS_df1).any(axis=1)])
 RC_df2=(RC_df1[~np.isnan(RC_df1).any(axis=1)])
 CLV_df2=(CLV_df1[~np.isnan(CLV_df1).any(axis=1)])
 CS_df2=(CS_df1[~np.isnan(CS_df1).any(axis=1)])
 
-newC_df2 = (newC_df1[~np.isnan(newC_df1).any(axis=1)])
 #print(df2.shape)
-newC_df3 = newC_df2[:,:]
+
 MS_df3 = MS_df2[:,:10]
 RC_df3 = RC_df2[:,:10]
 CLV_df3 = CLV_df2[:,:10]
 CS_df3 = CS_df2[:,:10]
 #print(MS_df3)
-
-newC_x = np.array(newC_df3)
 
 MS_x = np.array(MS_df3)
 MS_y = np.array(MS_df2[:,10:])
@@ -69,8 +67,6 @@ CS_y = np.array(CS_df2[:,10:])
 #print(MS_x.shape)
 #print(MS_y.shape)
 
-newC_n = newC_x.shape[0]
-
 MS_n = MS_x.shape[0]
 
 RC_n = RC_x.shape[0]
@@ -79,10 +75,7 @@ CLV_n = CLV_x.shape[0]
 
 CS_n = CS_x.shape[0]
 #print(MS_n)
-#print("HERERE")
-#print(MS_y.shape[0])
-newC_a = np.ones((MS_y.shape[0],1))
-newC_x = np.hstack((newC_a , newC_x))
+
 
 MS_a = np.ones((MS_y.shape[0],1))
 MS_x = np.hstack((MS_a , MS_x))
@@ -145,14 +138,14 @@ learning_rate = 0.00055
 num_iters = 20000
 
 
-MS_w = multiple_linear_reg_model_gda(MS_x , MS_y , MS_n , learning_rate , num_iters)
+#MS_w = multiple_linear_reg_model_gda(MS_x , MS_y , MS_n , learning_rate , num_iters)
 
 #RC_w = multiple_linear_reg_model_gda(RC_x , RC_y , RC_n , learning_rate , num_iters)
 
 #CLV_w = multiple_linear_reg_model_gda(CLV_x , CLV_y , CLV_n , learning_rate , num_iters)
 
-#CS_w = multiple_linear_reg_model_gda(CS_x , CS_y , CS_n , learning_rate , num_iters)
-
+CS_w = multiple_linear_reg_model_gda(CS_x , CS_y , CS_n , learning_rate , num_iters)
+# The value of final cost should be 14.3470049896 or nearly this(depending on the values of learning_rate and num_itersations you choose.)
 
 #print(w)
 
@@ -161,8 +154,7 @@ def predict(x,w):
     predicted = np.dot(w.T, x.T)
     return predicted
 
-print(predict(newC_x,MS_w))
-
+print(predict(CS_x,CS_w))
 
 
 
