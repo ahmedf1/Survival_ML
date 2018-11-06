@@ -1,15 +1,24 @@
+<!DOCTYPE html>
+<html>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<div class="nav bg-success" style="color:white">
+        <div class = "container" style="text-align: center;">
+            <h1>Customer Profile</h1>
+        </div>
+    </div>
     <ul class="list-unstyled">
         <li class="media">
-        <img class="mr-3" src={{object.profilePic}} alt="Profile Picture: This is you!" height="200px" width ="200px">
+        <img class="mr-3" src="iconImage.png" alt="Profile Picture: This is you!" height="200px" width ="200px">
         <div class="media-body">
             <div class="row">
             <div class = "col-lg">
         
-        <h4> {{user.userprofile.firstName}} {{user.userprofile.lastName}}</h4>
+        <h4> Name: {{user.userprofile.firstName}} {{user.userprofile.lastName}}</h4>
         <h7>{{user.userprofile.university}}</h7><br>
         <h7>{{user.userprofile.year_in_school}}</h7><br>
-        <h7>Member Since: {{user.memberSince.year}}</h7>
+        <h7>Member Since: {{user.memberSince.year}}</h7><br>
+        <h7>User Score:["", "😕  Bad", "😐  Okay", "🙂  Good", "😃  Great", "🤩  Excellent"]</h7>
         <br>
         
         </div>
@@ -81,3 +90,4 @@
         </li>
         </ul>
 </div>
+</html>
