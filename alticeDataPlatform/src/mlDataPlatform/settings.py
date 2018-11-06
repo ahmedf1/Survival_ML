@@ -25,7 +25,7 @@ SECRET_KEY = 'afodnf8q!k2o0#ah8*$)xy8hh7ub3!4459yc#o6$_uvdt3tf#&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dataTables'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'mlDataPlatform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'Template'],
+        'DIRS': [os.path.join(BASE_DIR, 'Template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -16,8 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-#from restaurants.views import home
+from dataTables.views import homePage
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$',homePage.as_view())
 ]
