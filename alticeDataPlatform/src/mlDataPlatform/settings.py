@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'afodnf8q!k2o0#ah8*$)xy8hh7ub3!4459yc#o6$_uvdt3tf#&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'mlDataPlatform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'Template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
